@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Tasarımı Sunum Platformu</title>
+
+    <!-- Google Fonts Preconnect & Stylesheet -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/playgrounds.css">
+</head>
+<body>
+    <!-- Ambient Neural Expressive Background -->
+    <div class="ambient-bg" aria-hidden="true"></div>
+
+    <!-- Layout Shell -->
+    <div class="app-shell">
+        <!-- Floating Header -->
+        <header class="app-header">
+            <a href="index.html" class="header-logo" title="Web Tasarımı" style="text-decoration:none;">
+                <span class="logo-dot"></span>
+                <h1>Web Tasarımı</h1>
+            </a>
+            <div class="header-controls">
+                <label for="week-select" class="sr-only">Hafta Seçiniz</label>
+                <div class="custom-select-wrapper">
+                    <select id="week-select">
+                        <option value="week1" selected>2. Hafta: Web Tasarımına Giriş</option>
+                        <option value="week2">3. Hafta: HTML Temelleri</option>
+                    </select>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content Layout (Slide + Navigation side-by-side) -->
+        <div class="app-main-layout">
+            <!-- Slide Container -->
+            <main id="slide-container" class="slide-container" tabIndex="0">
+                <!-- Slides will be injected dynamically here -->
+                <div class="loading-slide">Sunum yükleniyor...</div>
+            </main>
+
+            <!-- Sidebar Dots Navigation -->
+            <nav class="sidebar-nav" aria-label="Slayt Navigasyonu">
+                <ul id="nav-dots" class="nav-dots">
+                    <!-- Dots will be injected dynamically here -->
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Footer / Status Bar -->
+        <footer class="app-footer">
+            <div class="keyboard-hints">
+                <span class="key-badge">←</span>
+                <span class="key-badge">→</span>
+                <span class="hint-text">Slayt Geçişi</span>
+            </div>
+            <div class="slide-progress">
+                <span id="current-slide-num">0</span> / <span id="total-slides-num">0</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Core App Module with Cache Busting -->
+    <script type="module" src="scripts/main.js?v=1.0.7"></script>
+</body>
+</html>
