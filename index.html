@@ -29,10 +29,8 @@
             <div class="header-controls">
                 <label for="week-select" class="sr-only">Hafta Seçiniz</label>
                 <div class="custom-select-wrapper">
-                    <select id="week-select">
-                        <option value="week1" selected>2. Hafta: Web Tasarımına Giriş</option>
-                        <option value="week2">3. Hafta: HTML Temelleri</option>
-                    </select>
+                    <!-- Options injected by the engine from weeks/manifest.js -->
+                    <select id="week-select"></select>
                 </div>
             </div>
         </header>
@@ -67,6 +65,6 @@
     </div>
 
     <!-- Core App Module with Cache Busting -->
-    <script type="module" src="scripts/main.js?v=1.0.7"></script>
+    <script type="module" src="scripts/main.js?v=1.1.0"></script>
 </body>
 </html>
