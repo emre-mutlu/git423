@@ -1149,6 +1149,7 @@
     overflow: auto;
     margin: 0;
     white-space: pre;
+    display: block !important; /* kod bloğu DAİMA block kalır; inline display:flex yanlışlıkla eklenirse satırları/girintiyi bozmasın */
     box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
 }
 /* HTML sözdizimi renkleri */
