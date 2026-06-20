@@ -36,12 +36,6 @@
 }
 
 /* Base Styles */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 html {
     /* Sunum ekranı (~1200px+) tam 21px taban; küçük ekranda nazikçe 18px'e iner */
     font-size: clamp(18px, 1vw + 9px, 21px);
@@ -58,17 +52,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Accessibility Utilities */
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
 
 /* ==========================================================================
    AMBIENT BACKGROUND — Linear imza zemin (ince dot-grid + soluk lime vignette)
@@ -1050,13 +1033,4 @@ html:active-view-transition-type(backward)::view-transition-new(slide-container)
     overflow: hidden;
     background: var(--color-bg-base);
 }
-.presenter-thumb__slide {
-    position: relative !important;
-    inset: auto !important;
-    opacity: 1 !important;
-    visibility: visible !important;
-    pointer-events: none !important;
-    transform-origin: top left;
-}
-@media print { .presenter-panel { display: none !important; } }
 
