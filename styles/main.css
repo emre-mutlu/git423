@@ -1001,3 +1001,62 @@ html:active-view-transition-type(backward)::view-transition-new(slide-container)
     color: var(--color-warning);
 }
 
+/* --------------------------------------------------------------------------
+   PRESENTER PANEL (konuşmacı notları · yalnız ?presenter=1 · yalnız ekran)
+   Sağ kenarda dikey sütun (flex-item): slayt | not paneli | nav.
+   Motor git407 ile ortak; renkler git423 token'larıyla.
+   -------------------------------------------------------------------------- */
+.presenter-panel {
+    flex: 0 0 clamp(300px, 28vw, 460px);
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    padding: 16px 18px;
+    background: var(--color-bg-card);
+    border: 1px solid var(--border-light);
+    border-radius: var(--card-radius);
+    box-shadow: var(--shadow-card);
+    overflow: hidden;
+}
+.presenter-panel__bar {
+    flex: 0 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 12px; padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-light);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase;
+}
+.presenter-panel__tag { color: var(--color-primary); }
+.presenter-panel__count { color: var(--color-text-muted); }
+.presenter-panel__note {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    font-size: 1.05rem; line-height: 1.6;
+    color: var(--color-text-primary); white-space: pre-wrap;
+}
+.presenter-panel__note.is-empty { color: var(--color-text-muted); font-style: italic; }
+.presenter-panel__next {
+    flex: 0 0 auto;
+    margin-top: 12px; padding-top: 10px;
+    border-top: 1px solid var(--border-light);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem; letter-spacing: 0.04em; color: var(--color-text-muted);
+}
+.presenter-panel__preview {
+    flex: 0 0 auto;
+    margin-top: 10px;
+    border: 1px solid var(--border-light);
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    background: var(--color-bg-base);
+}
+.presenter-thumb__slide {
+    position: relative !important;
+    inset: auto !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: none !important;
+    transform-origin: top left;
+}
+@media print { .presenter-panel { display: none !important; } }
+
