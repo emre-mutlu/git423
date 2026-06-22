@@ -1,18 +1,18 @@
 /**
  * ==========================================================================
  * WEEK 4 MODULE: CSS Temelleri (Görsel İletişim Tasarımı Odaklı)
- * Uygulamalı Seri · Ders 3 / 8 · Çizgiyi renklendirmek: CSS'i bağlamak + ilk stiller
+ * Uygulamalı Seri · Ders 3 / 8 · Sayfaya görünüm vermek: CSS'i bağlamak + ilk stiller
  * ==========================================================================
  *
  * Bu deste week3 (HTML Yapı + Semantic) destesinin devamıdır. week3 anlamlı
- * iskeleti kurmuş, id/class isimlerini "CSS kancası" olarak tanıtmış ve
+ * iskeleti kurmuş, id/class isimlerini CSS'in seçeceği isimler olarak tanıtmış ve
  * "İskelet hazır, sırada görünüm var" diye kapanmıştı. Bu deste o görünümü
  * getirir: CSS'i HTML'e bağlama (inline/internal/external), sözdizimi,
  * seçiciler (element/class/id), ilk renk + yazı stilleri, hafifçe cascade + inheritance.
  *
- * OMURGA METAFORU: "eskiz → renklendirme" (illüstrasyon dili). HTML siyah-beyaz
- * çizgiyi/eskizi kurar; CSS renk, doku, ışık katar; JS hareket (ileride). Çıplak
- * sayfa = "renksiz eskiz". (week3 köprüsü için "iskelet" = yapısal omurga olarak korunur.)
+ * OMURGA DİLİ: düz "yapı → görünüm" çerçevesi (ağır metafor yok). HTML yapıyı/iskeleti
+ * kurar; CSS görünümü (renk, yazı, boşluk) verir; JS davranışı ekler (ileride). Stilsiz
+ * sayfa = "görünümü kurulmamış sayfa". (week3'ten gelen "iskelet" = yapısal omurga korunur.)
  *
  * ANLATIM TONU: konuyu anlatan dil (açıklayıcı, 3. şahıs/edilgen), öğrenciye
  * doğrudan hitap/emir DEĞİL. Sıcak ve anlaşılır kalır (benzetmeler korunur), ama
@@ -40,16 +40,16 @@ export const week4 = {
         // BÖLÜM 0: AÇILIŞ + KÖPRÜ
         // ============================================================
 
-        // Slide 1: Karşılama (Hero) — renksiz eskiz → renklendirilmiş
+        // Slide 1: Karşılama (Hero) — stilsiz sayfa → stillenmiş
         {
             id: "giris",
             title: "CSS Temelleri",
-            subtitle: '<span style="white-space:nowrap; font-size:1.25rem;">Görsel İletişim Tasarımı · 5. Hafta · Çizgiyi renklendirmek</span>',
+            subtitle: '<span style="white-space:nowrap; font-size:1.25rem;">Görsel İletişim Tasarımı · 5. Hafta · Sayfaya görünüm vermek</span>',
             type: "hero",
             html: `
                 <div style="margin-top: 26px; display:flex; align-items:center; gap:18px; justify-content:center; flex-wrap:wrap;">
                     <div style="text-align:left;">
-                        <div class="pane-label kod">Renksiz eskiz · stilsiz</div>
+                        <div class="pane-label kod">Stilsiz · yalnız yapı</div>
                         <div style="width:210px; background:#ffffff; border-radius:6px; padding:14px 16px; font-family:'Times New Roman',Times,serif; color:#000;">
                             <div style="font-size:1.25rem; font-weight:bold; line-height:1.2;">Deniz Demir</div>
                             <div style="font-size:0.78rem;"><span style="color:#0000ee; text-decoration:underline;">Hakkımda</span> <span style="color:#0000ee; text-decoration:underline;">İşlerim</span></div>
@@ -59,7 +59,7 @@ export const week4 = {
                     </div>
                     <span style="font-size:1.5rem; color:var(--color-secondary); align-self:center; font-weight:700; white-space:nowrap;">+ CSS →</span>
                     <div style="text-align:left;">
-                        <div class="pane-label cikti">Renklendirilmiş · CSS ile</div>
+                        <div class="pane-label cikti">Stillenmiş · CSS ile</div>
                         <div style="width:210px; border-radius:10px; padding:14px 16px; background:linear-gradient(135deg, rgba(212,255,0,0.14), rgba(2,184,204,0.10)); border:1px solid rgba(212,255,0,0.3);">
                             <div style="font-size:1.2rem; font-weight:800; background:linear-gradient(135deg,#fff,var(--color-secondary)); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Deniz Demir</div>
                             <div style="display:flex; gap:10px; font-size:0.62rem; color:var(--color-text-secondary); margin-top:2px;"><span>Hakkımda</span><span>İşlerim</span></div>
@@ -71,13 +71,13 @@ export const week4 = {
             `
         },
 
-        // Slide 2: Geri çağrı — çizgiler hazır ama renksiz
+        // Slide 2: Geri çağrı — yapı hazır ama stilsiz
         {
             id: "geri-cagri",
             category: "Hatırlatma",
             title: "İskelet Kuruldu, Sıra Renkte",
             html: `
-                <p class="vcd-content-intro">Önceki dersten elde kalan, sayfanın anlamlı iskeleti: <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>footer</code>. Bölümler <code>id</code> ve <code>class</code> ile birer <strong style="color:var(--color-text-primary);">isim</strong> de taşır; bunlar o zaman "CSS'in kancası" diye anılmıştı. Bu dersin işi, o kancaları kullanmak.</p>
+                <p class="vcd-content-intro">Önceki dersten elde kalan, sayfanın anlamlı iskeleti: <code>header</code>, <code>nav</code>, <code>main</code>, <code>section</code>, <code>article</code>, <code>footer</code>. Bölümler <code>id</code> ve <code>class</code> ile birer <strong style="color:var(--color-text-primary);">isim</strong> de taşır; CSS de element'leri tam bu isimlerle seçer. Bu dersin işi, o isimleri kullanmak.</p>
                 <div class="vcd-grid-2" style="margin-top:0; align-items:stretch;">
                     <div style="display:flex; flex-direction:column;">
                         <div class="pane-label kod">Kurulan iskelet · isimleriyle</div>
@@ -91,13 +91,13 @@ export const week4 = {
 <span class="t">&lt;/main&gt;</span></pre>
                     </div>
                     <div style="display:flex; flex-direction:column;">
-                        <div class="pane-label cikti">Tarayıcıdaki hali · renksiz eskiz</div>
+                        <div class="pane-label cikti">Tarayıcıdaki hali · stilsiz</div>
                         <div class="html-cikti" style="flex:1; display:flex; flex-direction:column; justify-content:center;"><h1 style="font-size:1.5em;">Deniz Demir</h1><h2 style="font-size:1.1em;">İşlerim</h2><p>Afiş Serisi: sergi için 3 afiş.</p></div>
                     </div>
                 </div>
                 <div style="display:flex; align-items:center; gap:10px; margin-top:14px; padding:11px 14px; background:rgba(212,255,0,0.06); border-left:2px solid var(--color-primary); border-radius:0 8px 8px 0;">
                     <span style="font-size:1.1rem;">🎨</span>
-                    <span style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.5;">İskelet sağlam, isimler takılı; ama sayfa şu an <strong style="color:var(--color-text-primary);">renksiz bir eskizden</strong> farksız. CSS bu derste o <code>#isler</code> ve <code>.proje-karti</code> isimlerini tek tek çağırır ve eskizi renklendirir.</span>
+                    <span style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.5;">İskelet sağlam, bölümler adlandırılmış; ama sayfa şu an <strong style="color:var(--color-text-primary);">hiçbir görünüm kararı taşımıyor</strong>. CSS bu derste o <code>#isler</code> ve <code>.proje-karti</code> isimlerini tek tek çağırır ve sayfanın görünümünü kurar.</span>
                 </div>
             `
         },
@@ -106,7 +106,7 @@ export const week4 = {
         // BÖLÜM 1: NEDEN ve NE
         // ============================================================
 
-        // Slide 3: Neden CSS — renksiz sayfanın derdi
+        // Slide 3: Neden CSS — stilsiz sayfanın derdi
         {
             id: "neden-css",
             category: "Bölüm 1: Neden ve Ne",
@@ -129,8 +129,8 @@ export const week4 = {
                     </div>
                 </div>
                 <div class="vcd-analogy-box" style="margin-top:14px;">
-                    <h4>Söz Tutma Zamanı</h4>
-                    <p>Çizgiler bir eskizi okunur kılar ama bitmiş bir iş değildir. CSS (Cascading Style Sheets), sayfaya <strong>renk, yazı tipi, boşluk ve kimlik</strong> katan katmandır. Tasarımcının asıl sahası da burada açılır.</p>
+                    <h4>CSS Ne Katar?</h4>
+                    <p>HTML sayfanın yapısını kurar ama görünümünü vermez. CSS (Cascading Style Sheets), sayfaya <strong>renk, yazı tipi, boşluk ve kimlik</strong> katan katmandır. Tasarımcının asıl sahası da burada açılır.</p>
                 </div>
             `
         },
@@ -146,7 +146,7 @@ export const week4 = {
                     <div class="vcd-glass-card" style="padding:16px; display:flex; flex-direction:column; gap:6px; opacity:0.7;">
                         <div style="font-size:1.4rem;">✏️</div>
                         <strong style="color:var(--color-text-secondary); font-size:0.9rem;">HTML · Yapı</strong>
-                        <p style="font-size:0.76rem; color:var(--color-text-muted); line-height:1.5; margin:0;">Çizgi ve içerik: ne var? Başlık, paragraf, bölgeler. <strong style="color:var(--color-text-secondary);">Bitti</strong> (Ders 1-2).</p>
+                        <p style="font-size:0.76rem; color:var(--color-text-muted); line-height:1.5; margin:0;">Yapı ve içerik: ne var? Başlık, paragraf, bölgeler. <strong style="color:var(--color-text-secondary);">Bitti</strong> (Ders 1-2).</p>
                     </div>
                     <div class="vcd-glass-card" style="padding:16px; display:flex; flex-direction:column; gap:6px; border-color:rgba(212,255,0,0.4); background:rgba(212,255,0,0.04);">
                         <div style="font-size:1.4rem;">🎨</div>
@@ -161,8 +161,8 @@ export const week4 = {
                 </div>
                 <div class="vcd-grid-2" style="margin-top:14px; align-items:stretch;">
                     <div class="vcd-analogy-box" style="margin:0;">
-                        <h4>Çizim Benzetmesi</h4>
-                        <p>Bir illüstrasyon önce siyah-beyaz çizilir (HTML), sonra renklenir (CSS), animasyona dönerse hareketlenir (JavaScript). Çizgi yapıyı kurar, renk kimliği verir, hareket sonraki adımdır.</p>
+                        <h4>Yapı, Görünüm, Davranış</h4>
+                        <p>Bir web sayfası üç katmanda kurulur: HTML yapıyı (ne var), CSS görünümü (nasıl görünür), JavaScript davranışı (ne yapar) taşır. Yapı önce gelir; görünüm onu kimliğe kavuşturur; davranış sonraki adımdır.</p>
                     </div>
                     <div style="display:flex; flex-direction:column; justify-content:center; gap:9px; padding:16px 18px; background:rgba(2,184,204,0.06); border:1px solid rgba(2,184,204,0.22); border-radius:10px;">
                         <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:1.2rem;">🪜</span><strong style="color:var(--color-secondary); font-size:0.9rem;">Cascading: Bir Ön İşaret</strong></div>
@@ -180,7 +180,7 @@ export const week4 = {
             className: "slide-fill",
             html: `
                 <div style="display:flex; flex-direction:column; height:100%; gap:12px;">
-                    <p class="vcd-content-intro" style="margin:0; flex-shrink:0;">Bazen tek bir örnek, sayfalarca açıklamadan daha çok şey anlatır. Solda birkaç satır CSS, sağda Deniz'in renksiz sayfası var. Buton kuralları devreye sokunca aynı HTML <strong style="color:var(--color-primary);">bambaşka</strong> bir sayfaya dönüşür. Bu birkaç satırın tek tek ne yaptığı ilerleyen slaytların konusu.</p>
+                    <p class="vcd-content-intro" style="margin:0; flex-shrink:0;">Bazen tek bir örnek, sayfalarca açıklamadan daha çok şey anlatır. Solda birkaç satır CSS, sağda Deniz'in stilsiz sayfası var. Buton kuralları devreye sokunca aynı HTML <strong style="color:var(--color-primary);">bambaşka</strong> bir sayfaya dönüşür. Bu birkaç satırın tek tek ne yaptığı ilerleyen slaytların konusu.</p>
                     <div class="vcd-grid-2" style="flex:1; min-height:0; margin-top:0; align-items:stretch;">
                         <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
                             <div style="display:flex; align-items:center; justify-content:space-between; gap:12px;">
@@ -188,12 +188,12 @@ export const week4 = {
                                 <button class="sim-btn css-toggle">CSS'i uygula</button>
                             </div>
                             <pre class="html-kod" style="flex:1; font-size:0.74rem; margin:0; line-height:1.6;"><span style="color:#818cf8;">body</span> {
-  <span style="color:#7dd3fc;">font-family</span>: <span style="color:#34d399;">sans-serif</span>;
-  <span style="color:#7dd3fc;">background</span>: <span style="color:#34d399;">#faf7f0</span>;
-  <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">#2d2a26</span>;
+  <span style="color:#7dd3fc;">font-family</span>: <span style="color:#34d399;">'Trebuchet MS', sans-serif</span>;
+  <span style="color:#7dd3fc;">background</span>: <span style="color:#34d399;">linen</span>;
+  <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">black</span>;
 }
-<span style="color:#818cf8;">h1</span> { <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">#c0392b</span>; }
-<span style="color:#818cf8;">a</span>  { <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">#2980b9</span>; }</pre>
+<span style="color:#818cf8;">h1</span> { <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">firebrick</span>; }
+<span style="color:#818cf8;">a</span>  { <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">steelblue</span>; }</pre>
                         </div>
                         <div style="display:flex; flex-direction:column; gap:10px; min-height:0;">
                             <div class="pane-label cikti">Tarayıcıda · canlı</div>
@@ -208,7 +208,7 @@ export const week4 = {
                 if (!btn || !out) return;
                 const icerik = '<h1>Deniz Demir</h1><p>Görsel iletişim tasarımı öğrencisi. Afiş ve marka kimliği üzerine çalışıyorum.</p><p><a href="#">İşlerime bak</a></p>';
                 const ciplak = '<style>body{padding:16px;}</style>';
-                const giyili = '<style>body{font-family:sans-serif;background:#faf7f0;color:#2d2a26;padding:20px;line-height:1.6;} h1{color:#c0392b;} a{color:#2980b9;}</style>';
+                const giyili = '<style>body{font-family:\'Trebuchet MS\',sans-serif;background:linen;color:black;padding:20px;line-height:1.6;} h1{color:firebrick;} a{color:steelblue;}</style>';
                 let acik = false;
                 const guncelle = () => {
                     out.srcdoc = (acik ? giyili : ciplak) + icerik;
@@ -237,22 +237,27 @@ export const week4 = {
                 <p class="vcd-content-intro">Renk ve yazı kuralları kendi başına bir işe yaramaz; tarayıcının onları sayfayla ilişkilendirmesi gerekir. Bu bağ üç yoldan kurulur ve her yol, kuralın HTML sayfasında durduğu yeri değiştirir.</p>
                 <div class="vcd-grid-2" style="margin-top:0; align-items:stretch; grid-template-columns:1.15fr 1fr;">
                     <div style="display:flex; flex-direction:column; gap:8px;">
-                        <div class="pane-label kod">Bir HTML sayfası · her yöntem nereye yazılır</div>
-                        <pre class="html-kod" style="flex:1; font-size:0.7rem; margin:0; line-height:1.85;"><span class="t">&lt;!DOCTYPE html&gt;</span>
-<span class="t">&lt;html&gt;</span>
-  <span class="t">&lt;head&gt;</span>
-    <span class="iskelet-satir" data-y="external" style="transition:opacity .22s;"><span class="t">&lt;link</span> <span class="a">rel</span>=<span class="v">"stylesheet"</span> <span class="a">href</span>=<span class="v">"style.css"</span><span class="t">&gt;</span>  <span style="color:var(--color-primary); font-weight:700;">③</span></span>
-    <span class="iskelet-satir" data-y="internal" style="transition:opacity .22s;"><span class="t">&lt;style&gt;</span>  <span style="color:var(--color-secondary); font-weight:700;">②</span>
-      <span style="color:#818cf8;">h1</span> { <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">#c0392b</span>; }
-    <span class="t">&lt;/style&gt;</span></span>
-  <span class="t">&lt;/head&gt;</span>
-  <span class="t">&lt;body&gt;</span>
-    <span class="iskelet-satir" data-y="inline" style="transition:opacity .22s;"><span class="t">&lt;h1</span> <span class="a">style</span>=<span class="v">"color:#c0392b"</span><span class="t">&gt;</span>Deniz<span class="t">&lt;/h1&gt;</span>  <span style="color:var(--color-warning); font-weight:700;">①</span></span>
-  <span class="t">&lt;/body&gt;</span>
-<span class="t">&lt;/html&gt;</span></pre>
+                        <div class="pane-label kod">Seçili yöntem · kod nereye yazılır</div>
+                        <pre class="html-kod kod-blok" data-y="inline" style="flex:1; font-size:0.72rem; margin:0; line-height:1.7;"><span class="c">&lt;!-- ① stil, etiketin style attribute'ünde --&gt;</span>
+<span class="t">&lt;body&gt;</span>
+  <span class="t">&lt;h1</span> <span class="a">style</span>=<span class="v">"color:#c0392b"</span><span class="t">&gt;</span>Deniz<span class="t">&lt;/h1&gt;</span>
+<span class="t">&lt;/body&gt;</span></pre>
+                        <pre class="html-kod kod-blok" data-y="internal" style="flex:1; font-size:0.72rem; margin:0; line-height:1.7; display:none;"><span class="c">&lt;!-- ② stil, &lt;head&gt; içindeki &lt;style&gt; bloğunda --&gt;</span>
+<span class="t">&lt;head&gt;</span>
+  <span class="t">&lt;style&gt;</span>
+    <span style="color:#818cf8;">h1</span> { <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">#c0392b</span>; }
+  <span class="t">&lt;/style&gt;</span>
+<span class="t">&lt;/head&gt;</span></pre>
+                        <pre class="html-kod kod-blok" data-y="external" style="flex:1; font-size:0.72rem; margin:0; line-height:1.7; display:none;"><span class="c">&lt;!-- ③ index.html: ayrı dosyayı çağırır --&gt;</span>
+<span class="t">&lt;head&gt;</span>
+  <span class="t">&lt;link</span> <span class="a">rel</span>=<span class="v">"stylesheet"</span> <span class="a">href</span>=<span class="v">"style.css"</span><span class="t">&gt;</span>
+<span class="t">&lt;/head&gt;</span>
+
+<span class="c">/* style.css (ayrı dosya) */</span>
+<span style="color:#818cf8;">h1</span> { <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">#c0392b</span>; }</pre>
                     </div>
                     <div style="display:flex; flex-direction:column; gap:9px;">
-                        <div class="pane-label">Üç yol · numarayla</div>
+                        <div class="pane-label">Üç yol · tıkla, kod solda değişir</div>
                         <div style="flex:1; display:flex; flex-direction:column; gap:8px;">
                             <div class="yol-kart" data-yontem="inline" data-renk="#f59e0b" style="display:flex; gap:10px; padding:10px 12px; background:rgba(245,158,11,0.06); border:1px solid rgba(245,158,11,0.25); border-radius:8px; transition:opacity .22s, box-shadow .22s;">
                                 <span style="color:var(--color-warning); font-weight:700; font-size:1rem;">①</span>
@@ -276,13 +281,12 @@ export const week4 = {
             `,
             onRender: (slideEl) => {
                 const kartlar = Array.from(slideEl.querySelectorAll('.yol-kart'));
-                const satirlar = Array.from(slideEl.querySelectorAll('.iskelet-satir'));
-                if (!kartlar.length || !satirlar.length) return;
+                const bloklar = Array.from(slideEl.querySelectorAll('.kod-blok'));
+                if (!kartlar.length || !bloklar.length) return;
                 let aktif = "inline";
                 const uygula = () => {
-                    satirlar.forEach(s => {
-                        const secili = s.dataset.y === aktif;
-                        s.style.opacity = secili ? "1" : "0.2";
+                    bloklar.forEach(b => {
+                        b.style.setProperty('display', b.dataset.y === aktif ? 'block' : 'none', 'important');
                     });
                     kartlar.forEach(k => {
                         const secili = k.dataset.yontem === aktif;
@@ -327,8 +331,8 @@ export const week4 = {
                     </div>
                 </div>
                 <div class="vcd-analogy-box" style="margin-top:14px;">
-                    <h4>Eskiz Benzetmesi</h4>
-                    <p>Inline yazım, her çizgiyi tek tek elde boyamaya benzer: bir kez işe yarar, ama yüz çizgilik bir işte ton tutmaz. Çözüm, kuralları tek bir yerde toplamaktır.</p>
+                    <h4>Tek Tek Yazmanın Sınırı</h4>
+                    <p>Aynı stili her element'e tek tek yazmak bir kez işe yarar, ama sayfa büyüdükçe aynı kural çığ gibi tekrarlanır. Çözüm, kuralları tek bir yerde toplamaktır.</p>
                 </div>
             `
         },
@@ -402,6 +406,73 @@ export const week4 = {
             `
         },
 
+        // Slide: Bölüm 2 demo — kopyalanabilir external CSS örneği (derste VS Code'da denenir)
+        {
+            id: "baglama-demo",
+            category: "Bölüm 2: CSS'i Bağlama",
+            title: "Uygulamalı Örnek: External CSS",
+            html: `
+                <p class="vcd-content-intro">Üç yöntem anlatıldı; aşağıda external yöntemin tam hali. İki dosya birlikte çalışır: <code>index.html</code> sayfayı kurup <code>style.css</code>'i <code>&lt;link&gt;</code> ile çağırır, <code>style.css</code> ise stili taşır. Kopyalanıp VS Code'da iki ayrı dosyaya kaydedildiğinde sayfa renklenir.</p>
+                <div class="vcd-grid-2" style="margin-top:0; align-items:stretch;">
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                            <div class="pane-label kod" style="margin:0;">index.html</div>
+                            <button class="sim-btn kopyala-btn" data-hedef="#demo2-html">⧉ Kopyala</button>
+                        </div>
+                        <pre id="demo2-html" class="html-kod" style="flex:1; font-size:0.66rem; margin:0; line-height:1.55;"><span class="t">&lt;!DOCTYPE html&gt;</span>
+<span class="t">&lt;html</span> <span class="a">lang</span>=<span class="v">"tr"</span><span class="t">&gt;</span>
+<span class="t">&lt;head&gt;</span>
+  <span class="t">&lt;meta</span> <span class="a">charset</span>=<span class="v">"UTF-8"</span><span class="t">&gt;</span>
+  <span class="t">&lt;title&gt;</span>Deniz Demir<span class="t">&lt;/title&gt;</span>
+  <span class="t">&lt;link</span> <span class="a">rel</span>=<span class="v">"stylesheet"</span> <span class="a">href</span>=<span class="v">"style.css"</span><span class="t">&gt;</span>
+<span class="t">&lt;/head&gt;</span>
+<span class="t">&lt;body&gt;</span>
+  <span class="t">&lt;h1&gt;</span>Deniz Demir<span class="t">&lt;/h1&gt;</span>
+  <span class="t">&lt;p&gt;</span>Görsel iletişim tasarımı öğrencisi.<span class="t">&lt;/p&gt;</span>
+  <span class="t">&lt;a</span> <span class="a">href</span>=<span class="v">"#"</span><span class="t">&gt;</span>İşlerime bak<span class="t">&lt;/a&gt;</span>
+<span class="t">&lt;/body&gt;</span>
+<span class="t">&lt;/html&gt;</span></pre>
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                            <div class="pane-label cikti" style="margin:0;">style.css</div>
+                            <button class="sim-btn kopyala-btn" data-hedef="#demo2-css">⧉ Kopyala</button>
+                        </div>
+                        <pre id="demo2-css" class="html-kod" style="flex:1; font-size:0.66rem; margin:0; line-height:1.55;"><span style="color:#818cf8;">body</span> {
+  <span style="color:#7dd3fc;">font-family</span>: <span style="color:#34d399;">'Trebuchet MS', sans-serif</span>;
+  <span style="color:#7dd3fc;">background</span>: <span style="color:#34d399;">#f4e9d2</span>;
+  <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">#2d2a26</span>;
+}
+<span style="color:#818cf8;">h1</span> { <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">#c0392b</span>; }
+<span style="color:#818cf8;">a</span>  { <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">#2980b9</span>; }</pre>
+                    </div>
+                </div>
+                <div style="display:flex; align-items:center; gap:10px; margin-top:14px; padding:11px 14px; background:rgba(212,255,0,0.06); border-left:2px solid var(--color-primary); border-radius:0 8px 8px 0;">
+                    <span style="font-size:1.1rem;">📂</span>
+                    <span style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.5;">İki dosya aynı klasörde durur. <code>href="style.css"</code> aynı klasördeki dosyayı işaret eder; ikisi yan yana olduğu sürece bağ kurulur.</span>
+                </div>
+            `,
+            onRender: (slideEl) => {
+                slideEl.querySelectorAll('.kopyala-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const hedef = slideEl.querySelector(btn.dataset.hedef);
+                        if (!hedef) return;
+                        const bitti = () => {
+                            btn.textContent = '✓ Kopyalandı';
+                            btn.classList.add('active');
+                            setTimeout(() => { btn.textContent = '⧉ Kopyala'; btn.classList.remove('active'); }, 1500);
+                        };
+                        if (navigator.clipboard && navigator.clipboard.writeText) {
+                            navigator.clipboard.writeText(hedef.innerText).then(bitti).catch(bitti);
+                        } else {
+                            bitti();
+                        }
+                    });
+                });
+            }
+        },
+
         // ============================================================
         // BÖLÜM 3: SÖZDİZİMİ + SEÇİCİLER
         // ============================================================
@@ -435,8 +506,8 @@ export const week4 = {
                 </div>
                 <div class="vcd-grid-2" style="margin-top:14px; align-items:stretch;">
                     <div class="vcd-analogy-box" style="margin:0;">
-                        <h4>Eskiz Benzetmesi</h4>
-                        <p>Bir kural iki şey söyler: hangi çizgi ve hangi renk. Seçici hedefi gösterir (hangi element), ifade ona ne olacağını yazar (hangi görünüm). İkisi birleşince çizgi renge kavuşur.</p>
+                        <h4>İki Parça: Hedef ve Görünüm</h4>
+                        <p>Bir kural iki şey söyler: neyi ve nasıl. Seçici hedefi gösterir (hangi element), ifade ona ne olacağını yazar (hangi görünüm). İkisi birleşince element görünümüne kavuşur.</p>
                     </div>
                     <div style="display:flex; flex-direction:column; justify-content:center; gap:9px; padding:16px 18px; background:rgba(2,184,204,0.06); border:1px solid rgba(2,184,204,0.22); border-radius:10px;">
                         <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:1.2rem;">🧱</span><strong style="color:var(--color-secondary); font-size:0.9rem;">İfade (declaration)</strong></div>
@@ -507,8 +578,8 @@ export const week4 = {
                     </div>
                 </div>
                 <div style="display:flex; align-items:center; gap:10px; margin-top:14px; padding:11px 14px; background:rgba(212,255,0,0.06); border-left:2px solid var(--color-primary); border-radius:0 8px 8px 0;">
-                    <span style="font-size:1.1rem;">🪝</span>
-                    <span style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.5;">Önceki dersin "CSS kancası" işte buydu: <code>article</code>'lara verilen <code>.proje-karti</code> adı, burada karşılığını bulur ve renge kavuşur.</span>
+                    <span style="font-size:1.1rem;">🏷️</span>
+                    <span style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.5;">Önceki derste <code>article</code>'lara verilen <code>.proje-karti</code> ismi işte buydu: burada karşılığını bulur ve renge kavuşur.</span>
                 </div>
             `
         },
@@ -581,6 +652,69 @@ export const week4 = {
             `
         },
 
+        // Slide: Bölüm 3 demo — kopyalanabilir üç-seçici örneği (sınıfta gösterilir)
+        {
+            id: "secici-demo",
+            category: "Bölüm 3: Sözdizimi ve Seçiciler",
+            title: "Uygulamalı Örnek: Üç Seçici",
+            html: `
+                <p class="vcd-content-intro">Element, class ve id seçici tek bir örnekte bir arada. <code>index.html</code> yapıyı kurar, <code>style.css</code> üç seçiciyle üç ayrı hedefi boyar. Kopyalanıp denendiğinde her seçicinin neyi yakaladığı görünür.</p>
+                <div class="vcd-grid-2" style="margin-top:0; align-items:stretch;">
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                            <div class="pane-label kod" style="margin:0;">index.html</div>
+                            <button class="sim-btn kopyala-btn" data-hedef="#demo3-html">⧉ Kopyala</button>
+                        </div>
+                        <pre id="demo3-html" class="html-kod" style="flex:1; font-size:0.66rem; margin:0; line-height:1.55;"><span class="t">&lt;main&gt;</span>
+  <span class="t">&lt;h2&gt;</span>İşlerim<span class="t">&lt;/h2&gt;</span>
+  <span class="t">&lt;article</span> <span class="a">class</span>=<span class="v">"proje-karti"</span><span class="t">&gt;</span>Afiş Serisi<span class="t">&lt;/article&gt;</span>
+  <span class="t">&lt;article</span> <span class="a">class</span>=<span class="v">"proje-karti"</span><span class="t">&gt;</span>Logo Tasarımı<span class="t">&lt;/article&gt;</span>
+  <span class="t">&lt;section</span> <span class="a">id</span>=<span class="v">"iletisim"</span><span class="t">&gt;</span>
+    <span class="t">&lt;h2&gt;</span>İletişim<span class="t">&lt;/h2&gt;</span>
+  <span class="t">&lt;/section&gt;</span>
+<span class="t">&lt;/main&gt;</span></pre>
+                    </div>
+                    <div style="display:flex; flex-direction:column; gap:8px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
+                            <div class="pane-label cikti" style="margin:0;">style.css</div>
+                            <button class="sim-btn kopyala-btn" data-hedef="#demo3-css">⧉ Kopyala</button>
+                        </div>
+                        <pre id="demo3-css" class="html-kod" style="flex:1; font-size:0.66rem; margin:0; line-height:1.55;"><span class="c">/* element: bütün h2 başlıklar */</span>
+<span style="color:#818cf8;">h2</span> { <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">#c0392b</span>; }
+
+<span class="c">/* class: tekrar eden kartlar */</span>
+<span style="color:#d4ff00;">.proje-karti</span> { <span style="color:#7dd3fc;">background</span>: <span style="color:#34d399;">#fff</span>; }
+
+<span class="c">/* id: sayfada tek olan bölüm */</span>
+<span style="color:#02b8cc;">#iletisim</span> { <span style="color:#7dd3fc;">padding</span>: <span style="color:#34d399;">40px 0</span>; }</pre>
+                    </div>
+                </div>
+                <div style="display:flex; align-items:center; gap:10px; margin-top:14px; padding:11px 14px; background:rgba(2,184,204,0.06); border-left:2px solid var(--color-secondary); border-radius:0 8px 8px 0;">
+                    <span style="font-size:1.1rem;">🎯</span>
+                    <span style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.5;"><code>h2</code> her iki başlığı, <code>.proje-karti</code> iki kartı birden, <code>#iletisim</code> ise yalnız o tek bölümü yakalar.</span>
+                </div>
+            `,
+            onRender: (slideEl) => {
+                slideEl.querySelectorAll('.kopyala-btn').forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const hedef = slideEl.querySelector(btn.dataset.hedef);
+                        if (!hedef) return;
+                        const bitti = () => {
+                            btn.textContent = '✓ Kopyalandı';
+                            btn.classList.add('active');
+                            setTimeout(() => { btn.textContent = '⧉ Kopyala'; btn.classList.remove('active'); }, 1500);
+                        };
+                        if (navigator.clipboard && navigator.clipboard.writeText) {
+                            navigator.clipboard.writeText(hedef.innerText).then(bitti).catch(bitti);
+                        } else {
+                            bitti();
+                        }
+                    });
+                });
+            }
+        },
+
         // ============================================================
         // BÖLÜM 4: İLK STİLLER
         // ============================================================
@@ -589,7 +723,7 @@ export const week4 = {
         {
             id: "ilk-renk",
             category: "Bölüm 4: İlk Stiller",
-            title: "İlk Renk: color ve background",
+            title: "Renk: color ve background",
             html: `
                 <p class="vcd-content-intro">Stilsiz sayfaya sürülen ilk renkler iki property ile gelir: <code>color</code> yazının rengini, <code>background</code> ise arkasındaki alanın rengini belirler. Bu ikisi, kimliksiz sayfaya ilk tonunu verir.</p>
                 <div class="vcd-grid-2" style="margin-top:0; align-items:stretch;">
@@ -618,12 +752,12 @@ export const week4 = {
                 </div>
                 <div class="vcd-grid-2" style="margin-top:14px; align-items:stretch;">
                     <div class="vcd-analogy-box" style="margin:0;">
-                        <h4>Eskiz Benzetmesi</h4>
-                        <p><code>color</code> yazıyı, <code>background</code> art alanı boyar; ilk renk sürülünce sayfa kimliksizlikten çıkar. Palet ve kontrast dersin ilerleyen bölümünün işidir; burada renk yalnızca çalışır hale gelir.</p>
+                        <h4>İlk Renk Ne Yapar</h4>
+                        <p><code>color</code> yazıyı, <code>background</code> arka planı boyar; ilk renk sürülünce sayfa kimliksizlikten çıkar. Palet ve kontrast dersin ilerleyen bölümünün işidir; burada renk yalnızca çalışır hale gelir.</p>
                     </div>
                     <div style="display:flex; flex-direction:column; justify-content:center; gap:9px; padding:16px 18px; background:rgba(2,184,204,0.06); border:1px solid rgba(2,184,204,0.22); border-radius:10px;">
-                        <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:1.2rem;">🎨</span><strong style="color:var(--color-secondary); font-size:0.9rem;">Renk: İsim mi, Hex mi?</strong></div>
-                        <p style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.55; margin:0;">Bir renk iki türlü yazılır: hazır bir <strong style="color:var(--color-text-primary);">isim</strong> (<code style="color:#34d399;">red</code>, <code style="color:#34d399;">teal</code>) ya da kesin bir <strong style="color:var(--color-text-primary);">hex kodu</strong> (<code style="color:#34d399;">#c0392b</code>). İsim hızlıdır, hex tam denetim verir; ikisi de aynı yere yazılır.</p>
+                        <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:1.2rem;">🎨</span><strong style="color:var(--color-secondary); font-size:0.9rem;">Renk Nasıl Yazılır?</strong></div>
+                        <p style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.55; margin:0;">Bir renk birkaç türlü yazılır: hazır bir <strong style="color:var(--color-text-primary);">isim</strong> (<code style="color:#34d399;">red</code>), kesin bir <strong style="color:var(--color-text-primary);">hex kodu</strong> (<code style="color:#34d399;">#c0392b</code>) ya da <strong style="color:var(--color-text-primary);">rgb</strong> değeri (<code style="color:#34d399;">rgb(192,57,43)</code>). İsim hızlıdır; hex ve rgb tam denetim verir.</p>
                     </div>
                 </div>
             `
@@ -633,7 +767,7 @@ export const week4 = {
         {
             id: "ilk-yazi",
             category: "Bölüm 4: İlk Stiller",
-            title: "İlk Yazı: font-family ve font-size",
+            title: "Yazı: font-family ve font-size",
             html: `
                 <p class="vcd-content-intro">Yazının görünümü de iki property ile değişir: <code>font-family</code> hangi yazı tipinin kullanılacağını, <code>font-size</code> ne büyüklükte görüneceğini söyler. Tarayıcının varsayılan serif yazısı, tek bir satırla bambaşka bir karaktere kavuşur.</p>
                 <div class="vcd-grid-2" style="margin-top:0; align-items:stretch;">
@@ -661,51 +795,6 @@ export const week4 = {
                     <p><code>font-family</code> yazının kişiliğini kurar, <code>font-size</code> sayfadaki hiyerarşiyi: büyük başlık önce okunur, küçük metin sonra gelir. Yazı tiplerinin nasıl seçildiği, yedek font yığınları ve ölçü birimleri dersin ilerleyen bölümünün konusudur.</p>
                 </div>
             `
-        },
-
-        // Slide 17: Canlı editör — CSS doğrudan düzenlenir, önizleme anında güncellenir (interaktif)
-        {
-            id: "canli-editor",
-            category: "Bölüm 4: İlk Stiller",
-            title: "Canlı Editör: Kod ve Anında Sonuç",
-            className: "slide-fill",
-            html: `
-                <div style="display:flex; flex-direction:column; height:100%; gap:12px;">
-                    <p class="vcd-content-intro" style="margin:0; flex-shrink:0;">Soldaki CSS doğrudan düzenlenebilir; her değişiklik sağdaki önizlemeye anında yansır. Bir property'nin value'sunu değiştirmek sonucu o an gösterir. Property ile value arasındaki bağ böyle elle denenir.</p>
-                    <div class="vcd-grid-2" style="flex:1; min-height:0; margin-top:0; align-items:stretch;">
-                        <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
-                            <div class="pane-label kod">style.css · düzenlenebilir</div>
-                            <textarea class="css-edit" spellcheck="false" style="flex:1; min-height:150px; resize:none; font-family:'JetBrains Mono',monospace; font-size:0.82rem; line-height:1.7; background:var(--color-bg-code); color:#e2e8f0; border:1px solid var(--border-light); border-radius:10px; padding:14px 16px; outline:none;">body {
-  font-family: sans-serif;
-  background: #f4e9d2;
-  color: #2d2a26;
-  padding: 18px;
-}
-h1 { color: #c0392b; }
-p  { line-height: 1.6; }</textarea>
-                        </div>
-                        <div style="display:flex; flex-direction:column; gap:8px; min-height:0;">
-                            <div class="pane-label cikti">Canlı önizleme</div>
-                            <iframe class="html-live-frame editor-out" title="Canlı CSS önizleme" style="flex:1; min-height:150px;"></iframe>
-                        </div>
-                    </div>
-                    <div style="flex-shrink:0; display:flex; align-items:center; gap:10px; padding:10px 14px; background:rgba(212,255,0,0.06); border-left:2px solid var(--color-primary); border-radius:0 8px 8px 0;">
-                        <span style="font-size:1.05rem;">⌨️</span>
-                        <span style="font-size:0.8rem; color:var(--color-text-secondary); line-height:1.5;">Bir renk değerini, yazı tipini ya da boyutu değiştirmek yeterli; sonuç anında sağdaki önizlemede belirir.</span>
-                    </div>
-                </div>
-            `,
-            onRender: (slideEl) => {
-                const ta = slideEl.querySelector('.css-edit');
-                const out = slideEl.querySelector('.editor-out');
-                if (!ta || !out) return;
-                const icerik = '<h1>Deniz Demir</h1><p>Görsel iletişim tasarımı öğrencisi. Afiş ve marka kimliği üzerine çalışır.</p>';
-                const ciz = () => { out.srcdoc = '<style>body{margin:0;}' + ta.value + '</style>' + icerik; };
-                ta.addEventListener('input', ciz);
-                // textarea içinde ok/boşluk tuşları slayt geçişini tetiklemesin
-                ta.addEventListener('keydown', (e) => { e.stopPropagation(); });
-                ciz();
-            }
         },
 
         // ============================================================
@@ -746,7 +835,7 @@ p  { line-height: 1.6; }</textarea>
                         <span style="color:var(--color-text-muted);">&gt;</span>
                         <span style="padding:3px 9px; border-radius:6px; background:rgba(129,140,248,0.12); color:#818cf8;">element</span>
                     </div>
-                    <span style="font-size:0.78rem; color:var(--color-text-muted); line-height:1.5; flex:1; min-width:200px;">Daha belirgin seçici kazanır. Eşit güçte iki kural çakışırsa, sonra yazılan öne geçer.</span>
+                    <span style="font-size:0.78rem; color:var(--color-text-muted); line-height:1.5; flex:1; min-width:200px;">Daha özgül seçici kazanır. Eşit güçte iki kural çakışırsa, sonra yazılan öne geçer.</span>
                 </div>
             `
         },
@@ -790,6 +879,10 @@ p  { line-height: 1.6; }</textarea>
                         <p style="font-size:0.78rem; color:var(--color-text-secondary); line-height:1.5; margin:0;">Kutu ve yerleşimle ilgili olanlar: <code>background</code>, <code>border</code>, <code>margin</code>, <code>padding</code>.</p>
                     </div>
                 </div>
+                <div style="margin-top:14px; display:flex; align-items:center; gap:10px; padding:11px 14px; background:rgba(2,184,204,0.06); border-left:2px solid var(--color-secondary); border-radius:0 8px 8px 0;">
+                    <span style="font-size:1.1rem;">💡</span>
+                    <span style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.5;">Bu liste ezbere değil, bir mantığa dayanır: <strong style="color:var(--color-text-primary);">yazıyla</strong> ilgili özellikler miras geçer, çünkü bir alana verilen yazı stilini içindeki bütün metnin sürdürmesi beklenir. <strong style="color:var(--color-text-primary);">Kutu ve yerleşimle</strong> ilgili olanlar geçmez, çünkü her element kendi boşluğunu ve sınırını ayrı taşır.</span>
+                </div>
             `
         },
 
@@ -803,30 +896,34 @@ p  { line-height: 1.6; }</textarea>
             category: "Bölüm 6: Hepsi Bir Arada",
             title: "Tek Dosya, Bütün Sayfa",
             html: `
-                <p class="vcd-content-intro">Bağlama, seçici, property, value, cascade ve inheritance: hepsi tek bir <code>style.css</code> dosyasında buluşur. Aşağıdaki kurallar Deniz'in renksiz eskizini baştan sona biçimlendirilmiş bir sayfaya dönüştürür.</p>
+                <p class="vcd-content-intro">Bağlama, seçici, property, value, cascade ve inheritance: hepsi tek bir <code>style.css</code> dosyasında buluşur. Aşağıdaki kurallar Deniz'in stilsiz sayfasını baştan sona biçimlenmiş bir sayfaya dönüştürür.</p>
                 <div class="vcd-grid-2" style="margin-top:0; align-items:stretch;">
                     <div style="display:flex; flex-direction:column; gap:8px;">
                         <div class="pane-label kod">style.css · her şey bir arada</div>
-                        <pre class="html-kod" style="flex:1; font-size:0.68rem; margin:0; line-height:1.5;"><span style="color:#818cf8;">body</span> {
+                        <pre class="html-kod" style="flex:1; font-size:0.68rem; margin:0; line-height:1.5;"><span class="c">/* tüm sayfa: yazı tipi, metin rengi, arka plan */</span>
+<span style="color:#818cf8;">body</span> {
   <span style="color:#7dd3fc;">font-family</span>: <span style="color:#34d399;">'Trebuchet MS', sans-serif</span>;
   <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">#2d2a26</span>;
   <span style="color:#7dd3fc;">background</span>: <span style="color:#34d399;">#f4e9d2</span>;
 }
+<span class="c">/* başlık: kırmızı renk, büyük punto */</span>
 <span style="color:#818cf8;">h1</span> {
   <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">#c0392b</span>;
   <span style="color:#7dd3fc;">font-size</span>: <span style="color:#34d399;">34px</span>;
 }
+<span class="c">/* proje kartı: beyaz kutu, iç boşluk, yuvarlak köşe */</span>
 <span style="color:#d4ff00;">.proje-karti</span> {
   <span style="color:#7dd3fc;">background</span>: <span style="color:#34d399;">#fff</span>;
   <span style="color:#7dd3fc;">padding</span>: <span style="color:#34d399;">16px</span>;
   <span style="color:#7dd3fc;">border-radius</span>: <span style="color:#34d399;">8px</span>;
 }
+<span class="c">/* bağlantılar: mavi */</span>
 <span style="color:#818cf8;">a</span> {
   <span style="color:#7dd3fc;">color</span>: <span style="color:#34d399;">#2980b9</span>;
 }</pre>
                     </div>
                     <div style="display:flex; flex-direction:column; gap:8px;">
-                        <div class="pane-label cikti">Renklendirilmiş sayfa</div>
+                        <div class="pane-label cikti">Stillenmiş sayfa</div>
                         <div class="html-cikti" style="flex:1; background:#f4e9d2; color:#2d2a26; font-family:'Trebuchet MS', sans-serif; display:flex; flex-direction:column; justify-content:center; gap:10px;">
                             <h1 style="color:#c0392b; font-size:1.7em; margin:0;">Deniz Demir</h1>
                             <div style="background:#fff; padding:13px 15px; border-radius:8px;">
@@ -856,7 +953,7 @@ p  { line-height: 1.6; }</textarea>
             category: "Bölüm 7: Tasarım Gözü",
             title: "Tasarım Gözü: UI/UX'in Haritası",
             html: `
-                <p class="vcd-content-intro">Tasarım Gözü köşesi geçen derste açıldı: her destede kod kadar tasarımcı bakışı da yer alır. UI/UX'in arkasında yılların damıttığı bir teoriler kümesi durur; hepsi tek seferde değil, ders ders açılır. İşte büyük resim:</p>
+                <p class="vcd-content-intro">Tasarım Gözü köşesi geçen derste açıldı: her destede kod kadar tasarımcı bakışı da yer alır. UI/UX'in arkasında yıllar içinde oluşmuş bir teoriler kümesi durur; hepsi tek seferde değil, ders ders açılır. İşte büyük resim:</p>
                 <div class="vcd-grid-3" style="margin-top:0; align-items:stretch;">
                     <div class="vcd-glass-card" style="padding:15px; display:flex; flex-direction:column; gap:8px;">
                         <strong style="color:var(--color-secondary); font-size:0.85rem;">Algı ve Tarama</strong>
@@ -977,7 +1074,7 @@ p  { line-height: 1.6; }</textarea>
                 </div>
                 <div class="vcd-analogy-box" style="margin-top:14px;">
                     <h4>Bir Sektör Kuralı: <span lang="en">Consistency &amp; Standards</span></h4>
-                    <p>Tutarlılık, Jakob Nielsen'in on kullanılabilirlik (usability) sezgiselinden biridir: arayüz hem kendi içinde tutarlı olmalı, hem de sektörün ortak alışkanlıklarına uymalıdır. Kullanıcı, alışveriş sepetinin sağ üstte olmasını öğrenmek zorunda kalmaz, zaten oraya bakar.</p>
+                    <p><strong style="color:var(--color-text-primary);">Jakob Nielsen</strong>, kullanılabilirlik araştırmasının öncülerinden; iyi bir arayüzün uyması gereken on temel ilkeyi derlemiştir (bunlara <span lang="en">heuristics</span> · kullanılabilirlik ilkeleri denir). Tutarlılık işte bunlardan biridir: bir arayüz hem kendi içinde tutarlı olmalı, hem de sektörün ortak alışkanlıklarına uymalıdır. Kullanıcı, alışveriş sepetinin sağ üstte olduğunu öğrenmek zorunda kalmaz; zaten oraya bakar.</p>
                 </div>
             `
         },
@@ -1011,7 +1108,7 @@ p  { line-height: 1.6; }</textarea>
                 </div>
                 <div style="margin-top:14px; display:flex; align-items:center; gap:10px; padding:11px 14px; background:rgba(2,184,204,0.06); border-left:2px solid var(--color-secondary); border-radius:0 8px 8px 0;">
                     <span style="font-size:1.1rem;">🧭</span>
-                    <span style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.5;">Tutarlılık ilk ilke; tek başına değil. İlerleyen derste <strong style="color:var(--color-text-primary);">contrast</strong> (kontrast) gözü bilerek farklı yöne çeker, asıl mesajı öne çıkarır.</span>
+                    <span style="font-size:0.82rem; color:var(--color-text-secondary); line-height:1.5;">Tutarlılık ilk ilkedir, ama tek başına yetmez. İlerleyen derste <strong style="color:var(--color-text-primary);">contrast</strong> (kontrast) gözü bilerek farklı yöne çeker, asıl mesajı öne çıkarır.</span>
                 </div>
             `
         },
@@ -1023,10 +1120,10 @@ p  { line-height: 1.6; }</textarea>
         // Slide 26: Haftalık ödev · CSS uygulaması + derste demo için örnek HTML
         {
             id: "odev",
-            category: "Bölüm 8: Ödev ve Kapanış",
-            title: "Haftalık Ödev: Eskizi Renklendir",
+            category: "Bölüm 8: Pratik ve Kapanış",
+            title: "Haftalık Ödev: Sayfaya Görünüm Ver",
             html: `
-                <p class="vcd-content-intro">Bu haftanın ödevi, dersin araçlarını kendi sayfaya taşımak. Önceki derste kurulan HTML iskeletine external bir <code>style.css</code> bağlanır ve sayfa baştan sona renklendirilir. Sağdaki örnek, derste birlikte denenecek başlangıç noktasıdır.</p>
+                <p class="vcd-content-intro">Bu haftanın ödevi, dersin araçlarını kendi sayfasına taşımak. Önceki derste kurulan HTML iskeletine external bir <code>style.css</code> bağlanır ve sayfa baştan sona stillenir. Sağdaki örnek, derste birlikte denenecek başlangıç noktasıdır.</p>
                 <div class="vcd-grid-2" style="margin-top:0; align-items:stretch;">
                     <div style="display:flex; flex-direction:column; gap:11px;">
                         <div class="pane-label kod">Yapılacaklar · sırayla</div>
@@ -1098,13 +1195,35 @@ p  { line-height: 1.6; }</textarea>
                     <div style="display:flex; flex-direction:column; gap:8px;">
                         <div class="pane-label" style="color:var(--color-secondary);">Üç soru</div>
                         <div style="flex:1; display:flex; flex-direction:column; gap:10px;">
-                            <div style="display:flex; gap:10px; padding:11px 13px; background:rgba(2,184,204,0.06); border:1px solid rgba(2,184,204,0.2); border-radius:9px;"><span style="color:var(--color-secondary); font-weight:700;">1</span><span style="font-size:0.8rem; color:var(--color-text-secondary); line-height:1.45;">External CSS, inline ve internal'a neden tercih edilir?</span></div>
-                            <div style="display:flex; gap:10px; padding:11px 13px; background:rgba(2,184,204,0.06); border:1px solid rgba(2,184,204,0.2); border-radius:9px;"><span style="color:var(--color-secondary); font-weight:700;">2</span><span style="font-size:0.8rem; color:var(--color-text-secondary); line-height:1.45;"><code>.class</code> ile <code>#id</code> ne zaman birini, ne zaman ötekini ister?</span></div>
-                            <div style="display:flex; gap:10px; padding:11px 13px; background:rgba(2,184,204,0.06); border:1px solid rgba(2,184,204,0.2); border-radius:9px;"><span style="color:var(--color-secondary); font-weight:700;">3</span><span style="font-size:0.8rem; color:var(--color-text-secondary); line-height:1.45;">Aynı element'e iki kural çakışırsa hangisi geçerli olur?</span></div>
+                            <div class="soru-karti" style="display:flex; flex-direction:column; padding:11px 13px; background:rgba(2,184,204,0.06); border:1px solid rgba(2,184,204,0.2); border-radius:9px; cursor:pointer;">
+                                <div style="display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--color-secondary); font-weight:700;">1</span><span style="font-size:0.8rem; color:var(--color-text-secondary); line-height:1.45;">External CSS neden inline ve internal'a tercih edilir? <span class="cevap-ipucu" style="color:var(--color-text-muted); font-size:0.72rem; white-space:nowrap;">· cevabı gör</span></span></div>
+                                <div class="cevap" style="display:none; margin-top:9px; padding-top:9px; border-top:1px solid rgba(2,184,204,0.2); font-size:0.78rem; color:var(--color-text-primary); line-height:1.5;">Stil tek bir dosyada toplanır; bütün sayfalar onu paylaşır. Bir değişiklik her sayfaya birden yansır, içerik ile stil ayrı kalır.</div>
+                            </div>
+                            <div class="soru-karti" style="display:flex; flex-direction:column; padding:11px 13px; background:rgba(2,184,204,0.06); border:1px solid rgba(2,184,204,0.2); border-radius:9px; cursor:pointer;">
+                                <div style="display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--color-secondary); font-weight:700;">2</span><span style="font-size:0.8rem; color:var(--color-text-secondary); line-height:1.45;">Bir element'i seçerken ne zaman <code>.class</code>, ne zaman <code>#id</code> kullanılır? <span class="cevap-ipucu" style="color:var(--color-text-muted); font-size:0.72rem; white-space:nowrap;">· cevabı gör</span></span></div>
+                                <div class="cevap" style="display:none; margin-top:9px; padding-top:9px; border-top:1px solid rgba(2,184,204,0.2); font-size:0.78rem; color:var(--color-text-primary); line-height:1.5;">Tekrar eden, birden çok element için <code>.class</code>; sayfada yalnız bir kez geçen benzersiz bir bölüm için <code>#id</code>. Pratikte stilin çoğu class ile verilir.</div>
+                            </div>
+                            <div class="soru-karti" style="display:flex; flex-direction:column; padding:11px 13px; background:rgba(2,184,204,0.06); border:1px solid rgba(2,184,204,0.2); border-radius:9px; cursor:pointer;">
+                                <div style="display:flex; gap:10px; align-items:flex-start;"><span style="color:var(--color-secondary); font-weight:700;">3</span><span style="font-size:0.8rem; color:var(--color-text-secondary); line-height:1.45;">İki kural aynı element'i farklı boyarsa hangisi kazanır? <span class="cevap-ipucu" style="color:var(--color-text-muted); font-size:0.72rem; white-space:nowrap;">· cevabı gör</span></span></div>
+                                <div class="cevap" style="display:none; margin-top:9px; padding-top:9px; border-top:1px solid rgba(2,184,204,0.2); font-size:0.78rem; color:var(--color-text-primary); line-height:1.5;">Daha özgül seçici kazanır: <code>#id</code> &gt; <code>.class</code> &gt; element. İki kural eşit güçteyse, sonra yazılan geçerli olur.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            `
+            `,
+            onRender: (slideEl) => {
+                slideEl.querySelectorAll('.soru-karti').forEach(kart => {
+                    kart.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const cevap = kart.querySelector('.cevap');
+                        const ipucu = kart.querySelector('.cevap-ipucu');
+                        if (!cevap) return;
+                        const acik = cevap.style.display !== 'none';
+                        cevap.style.display = acik ? 'none' : 'block';
+                        if (ipucu) ipucu.textContent = acik ? '· cevabı gör' : '· gizle';
+                    });
+                });
+            }
         },
 
         // Slide 28: Köprü — CSS mekaniği bitti, sırada tasarım kararı (Tipografi + Renk)
@@ -1134,8 +1253,8 @@ p  { line-height: 1.6; }</textarea>
                     </div>
                 </div>
                 <div class="vcd-analogy-box" style="margin-top:14px;">
-                    <h4>Çizgi Renklendi</h4>
-                    <p>Bu deste, renksiz eskize ilk rengi sürdü: çizgiler artık bir kimliğe kavuşmaya başladı. Sıradaki ders o renkleri bir palete, yazıları bir tipografik sisteme oturtur. Renk çalışmaktan çıkar, bir karara dönüşür.</p>
+                    <h4>Görünüm Kuruldu</h4>
+                    <p>Bu deste, stilsiz sayfaya ilk görünümü verdi: yapı artık bir kimliğe kavuşmaya başladı. Sıradaki ders o renkleri bir palete, yazıları bir tipografik sisteme oturtur. Renk çalışmaktan çıkar, bir karara dönüşür.</p>
                 </div>
             `
         }

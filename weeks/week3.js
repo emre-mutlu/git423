@@ -7,7 +7,7 @@
  * Bu deste week2 (HTML Temelleri) destesinin devamıdır. Odak: sayfayı
  * bölgelere ayırmak — block/inline, div/span, semantic etiketler, id/class.
  * "Tasarım Gözü" köşesi bu deste ile açılır (UI vs UX + hiyerarşi + F-pattern).
- * CSS öğretimi YOK (sıradaki ders); id/class kanca olarak tanıtılır,
+ * CSS öğretimi YOK (sıradaki ders); id/class CSS'in seçeceği isim olarak tanıtılır,
  * her birinde 2 satırlık "sıradaki dersten tadımlık" CSS önizlemesi vardır.
  *
  * Stil/desen referansı: week2.js (vcd-* + playgrounds.css yardımcı sınıfları).
@@ -250,7 +250,7 @@ ve <span class="t">&lt;a</span> <span class="a">href</span>=<span class="v">"#"<
             category: "Bölüm 2: div ve span",
             title: "&lt;span&gt;: Anlamsız Satır-içi Kutu",
             html: `
-                <p class="vcd-content-intro"><code>&lt;span&gt;</code>, div'in satır-içi kardeşidir: metnin akışını bozmadan <strong style="color:var(--color-text-primary);">bir parçayı işaretler</strong>. Görünümü değiştirmez; ileride CSS ile o parçayı hedeflemek için kanca olur.</p>
+                <p class="vcd-content-intro"><code>&lt;span&gt;</code>, div'in satır-içi kardeşidir: metnin akışını bozmadan <strong style="color:var(--color-text-primary);">bir parçayı işaretler</strong>. Görünümü değiştirmez; ona bir class adı verilince CSS o parçayı bu isimle seçebilir.</p>
                 <div class="vcd-grid-2" style="margin-top:0; align-items:stretch;">
                     <div style="display:flex; flex-direction:column;">
                         <div class="pane-label kod">KOD</div>
