@@ -1,3 +1,5 @@
 .DS_Store
 _contact/
 _pdf/
+.playwright-mcp/
+WEEK5_PROGRESS.md
