@@ -1460,12 +1460,12 @@ family=Inter:<span style="color:#34d399;">wght@100..900</span>
                     </div>
                     <div style="display:flex; flex-direction:column; gap:8px;">
                         <div class="pane-label cikti">Sonuç · tek karar olmuş sayfa</div>
-                        <div class="html-cikti" style="flex:1; background:#f4f1ea; color:#2d2a26; padding:0; overflow:hidden; display:flex; flex-direction:column; font-family:'Helvetica Neue',Arial,sans-serif;">
-                            <div style="background:#2c3e50; color:#fff; padding:13px 16px;"><div style="font-size:1.25rem; font-weight:800; line-height:1;">Deniz Demir</div><div style="font-size:0.68rem; color:#aebfcc; letter-spacing:0.04em; margin-top:3px;">GÖRSEL İLETİŞİM TASARIMI</div></div>
+                        <div class="html-cikti" style="flex:1; background:#f4f1ea; color:#2d2a26; padding:0; overflow:hidden; display:flex; flex-direction:column; font-family:'Inter','Helvetica Neue',Arial,sans-serif;">
+                            <div style="background:#2c3e50; color:#f4f1ea; padding:13px 16px;"><div style="font-size:1.25rem; font-weight:800; line-height:1;">Deniz Demir</div><div style="font-size:0.68rem; color:rgba(244,241,234,0.7); letter-spacing:0.04em; margin-top:3px;">GÖRSEL İLETİŞİM TASARIMI</div></div>
                             <div style="padding:15px 16px; display:flex; flex-direction:column; gap:9px;">
                                 <div style="font-size:1.05rem; font-weight:700; color:#2c3e50; line-height:1.15;">Afiş Serisi</div>
-                                <div style="font-size:0.82rem; line-height:1.55; color:#3a342e;">Sergi için üç afiş tasarımı; renk ve tipografi üzerine bir çalışma.</div>
-                                <button style="align-self:flex-start; background:#e67e22; color:#fff; border:none; padding:8px 17px; border-radius:6px; font-size:0.78rem; font-weight:700;">İletişime geç</button>
+                                <div style="font-size:0.82rem; line-height:1.55; color:#2d2a26;">Sergi için üç afiş tasarımı; renk ve tipografi üzerine bir çalışma.</div>
+                                <button style="align-self:flex-start; background:#e67e22; color:#2d2a26; border:none; padding:8px 17px; border-radius:6px; font-size:0.78rem; font-weight:700;">İletişime geç</button>
                             </div>
                         </div>
                     </div>
@@ -1483,7 +1483,7 @@ family=Inter:<span style="color:#34d399;">wght@100..900</span>
             category: "Bölüm 7: Pratik ve Kapanış",
             title: "Canlı Demo: Stüdyo Görev Listesi",
             html: `
-                <p class="vcd-content-intro">Soldaki stilsiz <code>index.html</code> başlangıç noktasıdır. Sağdaki dört görev bu haftanın araçlarıyla sınıfta tek tek tamamlanır; her görev işaretlendikçe ilerleme çubuğu dolar.</p>
+                <p class="vcd-content-intro">Soldaki stilsiz <code>index.html</code> + boş <code>style.css</code> başlangıç noktasıdır. Sağdaki beş görev sınıfta sırayla tamamlanır; altta açılan <strong style="color:var(--color-text-primary);">Kullanılacak Değerler</strong> alanında renk paleti ve tipografik ölçek hazır durur.</p>
                 <style>
                 .demo-board .gorev{display:flex;align-items:center;gap:11px;padding:9px 12px;background:rgba(255,255,255,0.02);border:1px solid var(--border-light);border-left:2px solid rgba(255,255,255,0.09);border-radius:9px;cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease;}
                 .demo-board .gorev:hover{transform:translateX(3px);border-color:rgba(212,255,0,0.35);}
@@ -1492,13 +1492,30 @@ family=Inter:<span style="color:#34d399;">wght@100..900</span>
                 .demo-board .gorev-badge{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:0.78rem;font-weight:800;color:var(--color-text-secondary);border:1.5px solid rgba(255,255,255,0.18);background:transparent;transition:background .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease;}
                 .demo-board .gorev.tamam .gorev-badge{background:var(--color-primary);color:#0a0a0a;border-color:var(--color-primary);box-shadow:0 0 12px rgba(212,255,0,0.4);}
                 .demo-board .gorev-baslik{font-size:0.82rem;font-weight:700;color:var(--color-text-primary);line-height:1.2;}
-                .demo-board .gorev-ipucu{font-size:0.7rem;color:var(--color-text-secondary);line-height:1.35;margin-top:2px;}
+                .demo-board .gorev-ipucu{font-size:0.66rem;color:var(--color-text-muted);line-height:1.3;margin-top:3px;}
                 .demo-board .gorev-ipucu code{font-size:0.92em;}
                 .demo-board .gorev-check{flex:none;font-size:0.98rem;color:var(--color-primary);opacity:0;transform:scale(0.4);transition:opacity .2s ease,transform .2s ease;}
                 .demo-board .gorev.tamam .gorev-check{opacity:1;transform:scale(1);}
                 .demo-board .gorev-bar{height:5px;border-radius:99px;background:rgba(255,255,255,0.07);overflow:hidden;}
                 .demo-board .gorev-bar-fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--color-primary),var(--color-secondary));transition:width .35s cubic-bezier(.4,0,.2,1);}
-                .demo-board .gorev-footer.tamam-hepsi{background:rgba(212,255,0,0.07)!important;border-left-color:var(--color-primary)!important;}
+                .degerler{margin-top:14px;padding:13px 16px;background:rgba(255,255,255,0.02);border:1px solid var(--border-light);border-radius:10px;transition:border-color .3s ease,background .3s ease;}
+                .degerler.tamam-hepsi{border-color:rgba(212,255,0,0.3);background:rgba(212,255,0,0.04);}
+                .degerler .kd-baslik{font-size:0.62rem;font-weight:800;letter-spacing:0.09em;text-transform:uppercase;color:var(--color-primary);margin-bottom:11px;}
+                .degerler .kd-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:22px;align-items:center;}
+                .degerler .kd-bolum{display:flex;flex-direction:column;gap:9px;min-width:0;}
+                .degerler .kd-alt{font-size:0.59rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--color-text-muted);}
+                .degerler .kd-renkler{display:grid;grid-template-columns:1fr 1fr;gap:7px;}
+                .degerler .kd-renk{display:flex;align-items:center;gap:8px;padding:5px 9px;background:rgba(255,255,255,0.03);border:1px solid var(--border-light);border-radius:7px;}
+                .degerler .kd-swatch{width:19px;height:19px;border-radius:4px;flex:none;border:1px solid rgba(255,255,255,0.4);box-shadow:inset 0 0 0 1px rgba(0,0,0,0.25);}
+                .degerler .kd-rol{font-size:0.66rem;color:var(--color-text-secondary);font-weight:600;}
+                .degerler .kd-hex{font-size:0.61rem;color:var(--color-text-muted);font-family:ui-monospace,Menlo,monospace;margin-left:auto;}
+                .degerler .kd-olcek{display:flex;flex-direction:column;gap:7px;}
+                .degerler .kd-tip{display:flex;align-items:center;gap:11px;padding:5px 11px;background:rgba(255,255,255,0.03);border:1px solid var(--border-light);border-radius:7px;}
+                .degerler .kd-aa{flex:none;width:38px;text-align:center;font-weight:800;color:var(--color-text-primary);line-height:1;}
+                .degerler .kd-et{font-size:0.66rem;color:var(--color-text-secondary);font-weight:600;}
+                .degerler .kd-val{font-size:0.61rem;color:var(--color-text-muted);font-family:ui-monospace,Menlo,monospace;margin-left:auto;}
+                .demo-board .gorev-bitti{display:none;}
+                .demo-board .gorev-sayac-kutu.tamam .gorev-bitti{display:inline;color:var(--color-primary);}
                 </style>
                 <div class="vcd-grid-2 demo-board" style="margin-top:0; align-items:stretch; grid-template-columns:1fr 1.05fr;">
                     <div style="display:flex; flex-direction:column; gap:8px;">
@@ -1506,7 +1523,12 @@ family=Inter:<span style="color:#34d399;">wght@100..900</span>
                             <div class="pane-label kod" style="margin:0;"><span lang="en">index.html</span> · başlangıç</div>
                             <button class="sim-btn kopyala-btn" data-hedef="#demo-html">⧉ Kopyala</button>
                         </div>
-                        <pre id="demo-html" class="html-kod" style="flex:1; font-size:0.63rem; margin:0; line-height:1.55;"><span class="t">&lt;body&gt;</span>
+                        <pre id="demo-html" class="html-kod" style="flex:1; font-size:0.58rem; margin:0; line-height:1.5;"><span class="t">&lt;!DOCTYPE html&gt;</span>
+<span class="t">&lt;html</span> <span class="a">lang</span>=<span class="v">"tr"</span><span class="t">&gt;</span>
+<span class="t">&lt;head&gt;</span>
+  <span style="background:rgba(212,255,0,0.12); border-radius:3px; padding:0 2px;"><span class="t">&lt;link</span> <span class="a">rel</span>=<span class="v">"stylesheet"</span> <span class="a">href</span>=<span class="v">"style.css"</span><span class="t">&gt;</span></span>
+<span class="t">&lt;/head&gt;</span>
+<span class="t">&lt;body&gt;</span>
   <span class="t">&lt;header&gt;</span>
     <span class="t">&lt;h1&gt;</span>Deniz Demir<span class="t">&lt;/h1&gt;</span>
     <span class="t">&lt;p&gt;</span>Görsel iletişim tasarımı öğrencisi<span class="t">&lt;/p&gt;</span>
@@ -1517,25 +1539,45 @@ family=Inter:<span style="color:#34d399;">wght@100..900</span>
        ve tipografi üzerine bir çalışma.<span class="t">&lt;/p&gt;</span>
     <span class="t">&lt;a</span> <span class="a">href</span>=<span class="v">"#"</span><span class="t">&gt;</span>İletişime geç<span class="t">&lt;/a&gt;</span>
   <span class="t">&lt;/main&gt;</span>
-<span class="t">&lt;/body&gt;</span></pre>
+<span class="t">&lt;/body&gt;</span>
+<span class="t">&lt;/html&gt;</span></pre>
                     </div>
                     <div style="display:flex; flex-direction:column; gap:9px;">
                         <div style="display:flex; align-items:center; justify-content:space-between; gap:10px;">
                             <div class="pane-label cikti" style="margin:0;">Stüdyo Görevleri</div>
-                            <span style="font-size:0.74rem; color:var(--color-text-secondary); font-weight:700;"><span class="gorev-sayac" style="color:var(--color-primary);">0</span> / 4</span>
+                            <span class="gorev-sayac-kutu" style="font-size:0.74rem; color:var(--color-text-secondary); font-weight:700;"><span class="gorev-sayac" style="color:var(--color-primary);">0</span> / 5 <span class="gorev-bitti">✓</span></span>
                         </div>
                         <div class="gorev-bar"><div class="gorev-bar-fill"></div></div>
-                        <div style="display:flex; flex-direction:column; gap:7px; margin-top:2px;">
-                            <div class="gorev"><span class="gorev-badge">1</span><div class="gorev-govde"><div class="gorev-baslik">Web fontunu bağla</div><div class="gorev-ipucu"><code>&lt;link&gt;</code> ile Inter, sonra <code>body { font-family }</code></div></div><span class="gorev-check">✓</span></div>
-                            <div class="gorev"><span class="gorev-badge">2</span><div class="gorev-govde"><div class="gorev-baslik">Tipografik ölçeği kur</div><div class="gorev-ipucu"><code>h1</code> 31 · <code>h2</code> 25 · <code>p</code> 16px (×1.25 ölçek)</div></div><span class="gorev-check">✓</span></div>
-                            <div class="gorev"><span class="gorev-badge">3</span><div class="gorev-govde"><div class="gorev-baslik">Renk paletini tanımla</div><div class="gorev-ipucu"><code>:root { --ana }</code> ve kullanımda <code>var(--ana)</code></div></div><span class="gorev-check">✓</span></div>
-                            <div class="gorev"><span class="gorev-badge">4</span><div class="gorev-govde"><div class="gorev-baslik">Kontrastı erişilebilir yap</div><div class="gorev-ipucu">metin / zemin oranı en az 4.5:1</div></div><span class="gorev-check">✓</span></div>
+                        <div style="display:flex; flex-direction:column; gap:6px; margin-top:2px;">
+                            <div class="gorev"><span class="gorev-badge">1</span><div class="gorev-govde"><div class="gorev-baslik">Stil dosyasını bağla</div><div class="gorev-ipucu">index.html → style.css bağlantısı</div></div><span class="gorev-check">✓</span></div>
+                            <div class="gorev"><span class="gorev-badge">2</span><div class="gorev-govde"><div class="gorev-baslik">Web fontunu ekle</div><div class="gorev-ipucu">Google Fonts üzerinden Inter</div></div><span class="gorev-check">✓</span></div>
+                            <div class="gorev"><span class="gorev-badge">3</span><div class="gorev-govde"><div class="gorev-baslik">Tipografik ölçeği kur (rem)</div><div class="gorev-ipucu">başlık ve metne oranlı boyut</div></div><span class="gorev-check">✓</span></div>
+                            <div class="gorev"><span class="gorev-badge">4</span><div class="gorev-govde"><div class="gorev-baslik">Renk paletini tanımla</div><div class="gorev-ipucu">:root değişkenleri, var() ile kullan</div></div><span class="gorev-check">✓</span></div>
+                            <div class="gorev"><span class="gorev-badge">5</span><div class="gorev-govde"><div class="gorev-baslik">Kontrastı erişilebilir yap</div><div class="gorev-ipucu">metin / zemin oranı en az 4.5:1</div></div><span class="gorev-check">✓</span></div>
                         </div>
                     </div>
                 </div>
-                <div class="gorev-footer" style="margin-top:13px; display:flex; align-items:center; gap:11px; padding:10px 14px; background:rgba(255,255,255,0.02); border-left:2px solid var(--border-light); border-radius:0 8px 8px 0; transition:background 0.3s ease, border-color 0.3s ease;">
-                    <span class="gorev-footer-icon" style="font-size:1.05rem;">🛠️</span>
-                    <span class="gorev-footer-text" style="font-size:0.78rem; color:var(--color-text-secondary); line-height:1.5;">Her görev bu haftanın bir aracına denk gelir; sırayla uygulandığında stilsiz sayfa bir tasarıma dönüşür.</span>
+                <div class="degerler">
+                    <div class="kd-baslik">Kullanılacak Değerler</div>
+                    <div class="kd-grid">
+                        <div class="kd-bolum">
+                            <div class="kd-alt">Renk paleti</div>
+                            <div class="kd-renkler">
+                                <div class="kd-renk"><span class="kd-swatch" style="background:#f4f1ea;"></span><span class="kd-rol">Zemin</span><span class="kd-hex">#f4f1ea</span></div>
+                                <div class="kd-renk"><span class="kd-swatch" style="background:#2d2a26;"></span><span class="kd-rol">Metin</span><span class="kd-hex">#2d2a26</span></div>
+                                <div class="kd-renk"><span class="kd-swatch" style="background:#2c3e50;"></span><span class="kd-rol">Ana</span><span class="kd-hex">#2c3e50</span></div>
+                                <div class="kd-renk"><span class="kd-swatch" style="background:#e67e22;"></span><span class="kd-rol">Vurgu</span><span class="kd-hex">#e67e22</span></div>
+                            </div>
+                        </div>
+                        <div class="kd-bolum">
+                            <div class="kd-alt">Tipografik ölçek (rem)</div>
+                            <div class="kd-olcek">
+                                <div class="kd-tip"><span class="kd-aa" style="font-size:1.4rem;">Aa</span><span class="kd-et">h1</span><span class="kd-val">1.95rem</span></div>
+                                <div class="kd-tip"><span class="kd-aa" style="font-size:1.12rem;">Aa</span><span class="kd-et">h2</span><span class="kd-val">1.56rem</span></div>
+                                <div class="kd-tip"><span class="kd-aa" style="font-size:0.9rem;">Aa</span><span class="kd-et">p</span><span class="kd-val">1rem</span></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             `,
             onRender: (slideEl) => {
@@ -1549,21 +1591,16 @@ family=Inter:<span style="color:#34d399;">wght@100..900</span>
                     });
                 });
                 const sayac = slideEl.querySelector('.gorev-sayac');
+                const sayacKutu = slideEl.querySelector('.gorev-sayac-kutu');
                 const barFill = slideEl.querySelector('.gorev-bar-fill');
-                const footer = slideEl.querySelector('.gorev-footer');
-                const footerIcon = slideEl.querySelector('.gorev-footer-icon');
-                const footerText = slideEl.querySelector('.gorev-footer-text');
-                const varsayilanMetin = footerText ? footerText.innerHTML : '';
+                const degerler = slideEl.querySelector('.degerler');
                 const guncelle = () => {
                     const n = slideEl.querySelectorAll('.gorev.tamam').length;
                     if (sayac) sayac.textContent = n;
-                    if (barFill) barFill.style.width = (n / 4 * 100) + '%';
-                    const hepsi = n === 4;
-                    if (footer) footer.classList.toggle('tamam-hepsi', hepsi);
-                    if (footerIcon) footerIcon.textContent = hepsi ? '✓' : '🛠️';
-                    if (footerText) footerText.innerHTML = hepsi
-                        ? 'Dört görev de tamam. Stilsiz <code>index.html</code> artık açıklanabilir bir <strong style="color:var(--color-text-primary);">tasarım kararı</strong>.'
-                        : varsayilanMetin;
+                    if (barFill) barFill.style.width = (n / 5 * 100) + '%';
+                    const hepsi = n === 5;
+                    if (sayacKutu) sayacKutu.classList.toggle('tamam', hepsi);
+                    if (degerler) degerler.classList.toggle('tamam-hepsi', hepsi);
                 };
                 slideEl.querySelectorAll('.gorev').forEach(g => {
                     g.addEventListener('click', (e) => {
