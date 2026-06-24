@@ -1487,9 +1487,9 @@ family=Inter:<span style="color:#34d399;">wght@100..900</span>
                 <style>
                 .demo-board .gorev{display:flex;align-items:center;gap:11px;padding:9px 12px;background:rgba(255,255,255,0.02);border:1px solid var(--border-light);border-left:2px solid rgba(255,255,255,0.09);border-radius:9px;cursor:pointer;transition:transform .18s ease,border-color .18s ease,background .18s ease;}
                 .demo-board .gorev:hover{transform:translateX(3px);border-color:rgba(212,255,0,0.35);}
-                .demo-board .gorev.tamam{background:rgba(212,255,0,0.06);border-left-color:var(--color-primary);}
+                .demo-board .gorev.tamam{background:rgba(212,255,0,0.06);}
                 .demo-board .gorev-govde{flex:1;min-width:0;}
-                .demo-board .gorev-badge{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-size:0.78rem;font-weight:800;color:var(--color-text-secondary);border:1.5px solid rgba(255,255,255,0.18);background:transparent;transition:background .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease;}
+                .demo-board .gorev-badge{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;line-height:1;font-size:0.76rem;font-weight:800;color:var(--color-text-secondary);border:1.5px solid rgba(255,255,255,0.18);background:transparent;transition:background .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease;}
                 .demo-board .gorev.tamam .gorev-badge{background:var(--color-primary);color:#0a0a0a;border-color:var(--color-primary);box-shadow:0 0 12px rgba(212,255,0,0.4);}
                 .demo-board .gorev-baslik{font-size:0.82rem;font-weight:700;color:var(--color-text-primary);line-height:1.2;}
                 .demo-board .gorev-ipucu{font-size:0.66rem;color:var(--color-text-muted);line-height:1.3;margin-top:3px;}
@@ -1498,9 +1498,17 @@ family=Inter:<span style="color:#34d399;">wght@100..900</span>
                 .demo-board .gorev.tamam .gorev-check{opacity:1;transform:scale(1);}
                 .demo-board .gorev-bar{height:5px;border-radius:99px;background:rgba(255,255,255,0.07);overflow:hidden;}
                 .demo-board .gorev-bar-fill{height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--color-primary),var(--color-secondary));transition:width .35s cubic-bezier(.4,0,.2,1);}
-                .degerler{margin-top:14px;padding:13px 16px;background:rgba(255,255,255,0.02);border:1px solid var(--border-light);border-radius:10px;transition:border-color .3s ease,background .3s ease;}
+                .alt-grid{display:grid;grid-template-columns:1.7fr 1fr;gap:14px;margin-top:14px;align-items:stretch;}
+                .alt-grid .degerler,.alt-grid .hazir-card{padding:13px 16px;background:rgba(255,255,255,0.02);border:1px solid var(--border-light);border-radius:10px;}
+                .degerler{transition:border-color .3s ease,background .3s ease;}
                 .degerler.tamam-hepsi{border-color:rgba(212,255,0,0.3);background:rgba(212,255,0,0.04);}
-                .degerler .kd-baslik{font-size:0.62rem;font-weight:800;letter-spacing:0.09em;text-transform:uppercase;color:var(--color-primary);margin-bottom:11px;}
+                .alt-grid .kd-baslik{font-size:0.62rem;font-weight:800;letter-spacing:0.09em;text-transform:uppercase;color:var(--color-primary);margin-bottom:11px;}
+                .alt-grid .kd-not{font-size:0.69rem;color:var(--color-text-muted);line-height:1.45;}
+                .alt-grid .kd-not code{color:var(--color-text-secondary);}
+                .hazir-card{display:flex;flex-direction:column;gap:9px;}
+                .hazir-card .kd-baslik{margin-bottom:0;}
+                .hazir-btnlar{display:flex;flex-direction:column;gap:8px;}
+                .hazir-card .sim-btn{width:100%;text-align:center;padding:9px 14px;}
                 .degerler .kd-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:22px;align-items:center;}
                 .degerler .kd-bolum{display:flex;flex-direction:column;gap:9px;min-width:0;}
                 .degerler .kd-alt{font-size:0.59rem;font-weight:700;letter-spacing:0.05em;text-transform:uppercase;color:var(--color-text-muted);}
@@ -1557,6 +1565,7 @@ family=Inter:<span style="color:#34d399;">wght@100..900</span>
                         </div>
                     </div>
                 </div>
+                <div class="alt-grid">
                 <div class="degerler">
                     <div class="kd-baslik">Kullanılacak Değerler</div>
                     <div class="kd-grid">
@@ -1579,15 +1588,142 @@ family=Inter:<span style="color:#34d399;">wght@100..900</span>
                         </div>
                     </div>
                 </div>
+                <div class="hazir-card">
+                    <div class="kd-baslik">Hazır Dosyalar</div>
+                    <div class="hazir-btnlar">
+                        <button class="sim-btn kopyala-btn" data-hedef="#demo-html-full">⧉ HTML'i kopyala</button>
+                        <button class="sim-btn kopyala-btn" data-hedef="#demo-css">⧉ CSS'i kopyala</button>
+                    </div>
+                    <div class="kd-not">Hazır <code>index.html</code> ve <code>style.css</code> kopyalanıp yapıştırılır; kurallar genişletilerek görünüm daha da iyileştirilebilir.</div>
+                </div>
+                </div>
+                <pre id="demo-html-full" style="display:none;">&lt;!DOCTYPE html&gt;
+&lt;html lang="tr"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Deniz Demir&lt;/title&gt;
+  &lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;
+  &lt;link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"&gt;
+  &lt;link rel="stylesheet" href="style.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;header&gt;
+    &lt;h1&gt;Deniz Demir&lt;/h1&gt;
+    &lt;p&gt;Görsel iletişim tasarımı öğrencisi&lt;/p&gt;
+  &lt;/header&gt;
+
+  &lt;main&gt;
+    &lt;section&gt;
+      &lt;h2&gt;Hakkımda&lt;/h2&gt;
+      &lt;p&gt;Afiş, tipografi ve renk üzerine çalışan bir tasarım öğrencisiyim. Basılı ve dijital projelerde sade, okunaklı düzenler kurmayı seviyorum.&lt;/p&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+      &lt;h2&gt;Çalışmalar&lt;/h2&gt;
+
+      &lt;article&gt;
+        &lt;h3&gt;Afiş Serisi&lt;/h3&gt;
+        &lt;p&gt;Sergi için üç afiş tasarımı; renk ve tipografi üzerine bir çalışma.&lt;/p&gt;
+      &lt;/article&gt;
+
+      &lt;article&gt;
+        &lt;h3&gt;Kitap Kapağı&lt;/h3&gt;
+        &lt;p&gt;Bir şiir kitabı için kapak ve sayfa düzeni denemesi.&lt;/p&gt;
+      &lt;/article&gt;
+
+      &lt;article&gt;
+        &lt;h3&gt;Logo Taslağı&lt;/h3&gt;
+        &lt;p&gt;Küçük bir kafe için kimlik ve logo çalışması.&lt;/p&gt;
+      &lt;/article&gt;
+    &lt;/section&gt;
+
+    &lt;section&gt;
+      &lt;h2&gt;İletişim&lt;/h2&gt;
+      &lt;p&gt;Projeler ve iş birlikleri için yazabilirsiniz.&lt;/p&gt;
+      &lt;a href="#"&gt;İletişime geç&lt;/a&gt;
+    &lt;/section&gt;
+  &lt;/main&gt;
+
+  &lt;footer&gt;
+    &lt;p&gt;© 2026 Deniz Demir&lt;/p&gt;
+  &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre>
+                <pre id="demo-css" style="display:none;">:root {
+  --zemin: #f4f1ea;
+  --metin: #2d2a26;
+  --ana:   #2c3e50;
+  --vurgu: #e67e22;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  background: var(--zemin);
+  color: var(--metin);
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+
+header {
+  background: var(--ana);
+  color: var(--zemin);
+  padding: 28px 24px;
+  border-radius: 12px;
+  margin: 32px 0;
+}
+header h1 { margin: 0; font-size: 1.95rem; }
+header p  { margin: 8px 0 0; opacity: 0.75; }
+
+section { margin-bottom: 36px; }
+
+h2 {
+  font-size: 1.56rem;
+  color: var(--ana);
+  border-bottom: 2px solid var(--vurgu);
+  padding-bottom: 6px;
+  margin-bottom: 16px;
+}
+
+article {
+  background: rgba(44, 62, 80, 0.05);
+  border-left: 4px solid var(--vurgu);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+}
+article h3 { margin: 0 0 4px; font-size: 1.25rem; color: var(--ana); }
+article p  { margin: 0; }
+
+a {
+  display: inline-block;
+  background: var(--vurgu);
+  color: var(--metin);
+  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+footer {
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(44, 62, 80, 0.15);
+  color: var(--ana);
+  font-size: 0.85rem;
+}
+
+/* Buradan genişletebilirsiniz: gölge, hover, boşluk... */</pre>
             `,
             onRender: (slideEl) => {
                 slideEl.querySelectorAll('.kopyala-btn').forEach(btn => {
+                    const orijinal = btn.textContent;
                     btn.addEventListener('click', (e) => {
                         e.stopPropagation();
                         const hedef = slideEl.querySelector(btn.dataset.hedef);
                         if (!hedef) return;
-                        const bitti = () => { btn.textContent = '✓ Kopyalandı'; btn.classList.add('active'); setTimeout(() => { btn.textContent = '⧉ Kopyala'; btn.classList.remove('active'); }, 1500); };
-                        if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(hedef.innerText).then(bitti).catch(bitti); } else { bitti(); }
+                        const bitti = () => { btn.textContent = '✓ Kopyalandı'; btn.classList.add('active'); setTimeout(() => { btn.textContent = orijinal; btn.classList.remove('active'); }, 1500); };
+                        if (navigator.clipboard && navigator.clipboard.writeText) { navigator.clipboard.writeText(hedef.textContent).then(bitti).catch(bitti); } else { bitti(); }
                     });
                 });
                 const sayac = slideEl.querySelector('.gorev-sayac');
