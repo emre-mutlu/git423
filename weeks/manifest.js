@@ -24,4 +24,5 @@ export const manifest = [
     { key: 'week3', label: '4. Hafta: HTML Yapı ve Semantic' },
     { key: 'week4', label: '5. Hafta: CSS Temelleri' },
     { key: 'week5', label: '6. Hafta: Tipografi ve Renk' },
+    { key: 'week6', label: '7. Hafta: Box Model ve Boşluk' },
 ];
